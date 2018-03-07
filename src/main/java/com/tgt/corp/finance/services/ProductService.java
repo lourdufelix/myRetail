@@ -30,6 +30,7 @@ public class ProductService {
 
     public void saveProductDetails(Product product){
         productRepository.save(product);
+        System.out.println("records saved successfully\n");
     }
 
     public Object getFullProductDetails(Long id){
