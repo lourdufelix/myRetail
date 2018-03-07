@@ -13,7 +13,8 @@ public class Product {
 
     public Product(){}
 
-    public Product(String name, Price price){
+    public Product(Long id, String name, Price price){
+        this.productId = id;
         this.name = name;
         this.price = price;
     }
