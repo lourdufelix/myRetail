@@ -1,0 +1,2 @@
+# myRetail
+sample demo project
