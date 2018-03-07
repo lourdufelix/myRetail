@@ -1,0 +1,37 @@
+Configutation:
+  name: Default
+
+  Properties:
+    Property:
+      name: log-path
+      value: ${sys:log_home}
+
+  Appenders:
+
+    Console:
+      name: Console_Appender
+      target: SYSTEM_OUT
+      PatternLayout:
+        pattern: "%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%25.25t] %-40.40c{1} - %msg%n}{FATAL=magenta, ERROR=red, WARN=yellow,  INFO=default, DEBUG=green, TRACE=blue}"
+
+#    RollingFile:
+#      - name: RollingFile_Appender
+#        fileName: ${log-path}/taxapi-systemlog.log
+#        bufferedIO: true
+#        filePattern: "${log-path}/archive/tax-service-systemlog.log.%d{yyyy-MM-dd-hh-mm-ss}.gz"
+#        PatternLayout:
+#          pattern: "%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%25.25t] %-40.40c{1} - %msg%n}{FATAL=magenta, ERROR=red, WARN=yellow,  INFO=default, DEBUG=green, TRACE=blue}"
+#        Policies:
+#          SizeBasedTriggeringPolicy:
+#            size: 10 MB
+#        DefaultRollOverStrategy:
+#          max: 10
+
+  Loggers:
+
+      Root:
+        level: info
+        AppenderRef:
+          - ref: Console_Appender
+#          - ref: RollingFile_Appender
+            level: info

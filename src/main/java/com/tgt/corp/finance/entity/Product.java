@@ -1,19 +1,15 @@
 package com.tgt.corp.finance.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 
-/**
- * Created by a515583 on 3/6/18.
- */
 public class Product {
 
     @Id
-    private Integer productId;
+    private Long productId;
 
     private String name;
     private Price price;
-
-
 
     public Product(){}
 
@@ -23,11 +19,11 @@ public class Product {
     }
 
 
-    public Integer getProductId() {
+    public Long getProductId() {
         return productId;
     }
 
-    public void setProductId(Integer productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
 
@@ -46,4 +42,5 @@ public class Product {
     public void setPrice(Price price) {
         this.price = price;
     }
+
 }
