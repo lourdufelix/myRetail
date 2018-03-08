@@ -1,5 +1,10 @@
 package com.tgt.corp.finance.entity;
 
+import org.springframework.lang.NonNull;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import java.util.SplittableRandom;
 
 /**
@@ -7,7 +12,13 @@ import java.util.SplittableRandom;
  */
 public class Price {
 
+    @Valid
+    @NonNull
+    @Min(0)
     private double value;
+
+    @Valid
+    @Pattern.List({@Pattern(regexp = "USD", message = "only accepts USD")})
     private String currency_code;
 
 

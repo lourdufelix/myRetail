@@ -1,4 +1,4 @@
-package com.tgt.corp.finance.message;
+package com.tgt.corp.finance.dto;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

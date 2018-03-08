@@ -11,9 +11,8 @@ sample demo project
 ### Critical end points
 This is written with the assumption that the application is running on localhost
 * http://localhost:8080/products/{id} => passing the ID in `GET` fetches the item details from local mongo db
-* http://localhost:8080/products/{id} => passing the ID in `PUT` method with a body similar to previous `GET` lets the user update the details, such as product price, currency or name in local system.
-* http://localhost:8080/products/store => accessing this `POST` method with json body as in method 1, either creates a new product locally or updates the details, if it is already present.
-* http://localhost:8080/products/fulldetails/{id} => passing the product id in `GET` method, fetches the item details from external API and attaches the price details from local system and provides the details.
+* http://localhost:8080/products/{id} => passing the ID in `PUT` method with a body similar to previous `GET`(without product name) lets the user change the price.
 
 ### Sample product IDs
-* 15117729, 16483589, 16696652, 16752456, 15643793
+* 13860428, 15117729, 16483589, 16696652, 16752456, 15643793
+* 13860428 => this is the only valid product available in external redsky system, as of now. 

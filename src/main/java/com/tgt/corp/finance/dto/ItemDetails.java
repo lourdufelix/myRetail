@@ -1,14 +1,11 @@
-package com.tgt.corp.finance.entity;
+package com.tgt.corp.finance.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Response {
+public class ItemDetails {
 
     @JsonProperty("product")
     private ExternalProduct externalProduct;
-
-    //Getters and Setters
-
 
     public ExternalProduct getExternalProduct() {
         return externalProduct;

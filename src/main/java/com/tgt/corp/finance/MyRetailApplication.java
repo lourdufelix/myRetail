@@ -3,27 +3,42 @@ package com.tgt.corp.finance;
 
 import com.tgt.corp.finance.entity.Price;
 import com.tgt.corp.finance.entity.Product;
+import com.tgt.corp.finance.repository.ProductRepository;
 import com.tgt.corp.finance.services.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import java.util.ArrayList;
 
 @SpringBootApplication
-public class MyRetailApplication {
+@EnableMongoRepositories(basePackageClasses = ProductRepository.class)
+public class MyRetailApplication implements CommandLineRunner {
+
+    @Autowired ProductRepository productRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(MyRetailApplication.class, args);
+    }
 
-        ProductService productService = new ProductService();
 
-        ArrayList<Object> ids = new ArrayList<>();
-        ids.add(0, 15117729);
+    @Override
+    public void run(String... strings) throws Exception {
+        productRepository.deleteAll();
 
-        //sample records insertions
-        Product product = new Product((Long)ids.get(0), "Dishwasher", new Price(100.00, "USD"));
+        ArrayList<Product> products = new ArrayList<>();
 
-        productService.saveProductDetails(product);
+        products.add(new Product(13860428L, new Price(13.49, "USD")));
+        products.add(new Product(15117729L, new Price(50.00, "USD")));
+        products.add(new Product(16483589L, new Price(550.00, "USD")));
+        products.add(new Product(16696652L, new Price(150.00, "USD")));
+        products.add(new Product(16752456L, new Price(110.99, "USD")));
+        products.add(new Product(15643793L, new Price(55.45, "USD")));
+
+        productRepository.saveAll(products);
 
     }
 }
+

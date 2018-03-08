@@ -2,20 +2,30 @@ package com.tgt.corp.finance.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
+import org.springframework.lang.NonNull;
+
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 public class Product {
 
     @Id
+    @Valid
+    @Min(10000000)
+    @Max(99999999)
     private Long productId;
 
-    private String name;
+    @Valid
+    @NonNull
     private Price price;
 
     public Product(){}
 
-    public Product(Long id, String name, Price price){
+    public Product(Long id, Price price){
         this.productId = id;
-        this.name = name;
         this.price = price;
     }
 
@@ -26,14 +36,6 @@ public class Product {
 
     public void setProductId(Long productId) {
         this.productId = productId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public Price getPrice() {

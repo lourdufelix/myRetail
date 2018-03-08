@@ -1,4 +1,4 @@
-package com.tgt.corp.finance.entity;
+package com.tgt.corp.finance.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
