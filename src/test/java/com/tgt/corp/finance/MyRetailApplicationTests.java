@@ -63,8 +63,22 @@ public class MyRetailApplicationTests {
             ResponseEntity responseEntity = restTemplate.getForEntity(getUrl, ProductDetails.class);
             productDetails = (ProductDetails) responseEntity.getBody();
             Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        }
+
+        @Test
+        public void checkPrice() throws Exception{
+            getUrl = "/products/13860428";
+            ResponseEntity responseEntity = restTemplate.getForEntity(getUrl, ProductDetails.class);
+            productDetails = (ProductDetails) responseEntity.getBody();
             Assert.assertEquals(productDetails.getPrice().getValue(),Double.valueOf(580.19), Double.valueOf(0.0));
-            //Assert.assertEquals(product.getPrice().getValue(),Double.valueOf(580.19));
+        }
+
+        @Test
+        public void checkCurrency() throws Exception{
+            getUrl = "/products/13860428";
+            ResponseEntity responseEntity = restTemplate.getForEntity(getUrl, ProductDetails.class);
+            productDetails = (ProductDetails) responseEntity.getBody();
+            Assert.assertEquals(productDetails.getPrice().getCurrency_code(),"USD");
         }
 
 }
